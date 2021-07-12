@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('./database/client')
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -7,6 +8,7 @@ const cors = require('cors')
 
 const indexRouter = require('./routes/index');
 const pokemonRouter = require('./routes/pokemonRouter');
+const fightsRouter = require('./routes/fightRouter')
 
 const app = express();
 
@@ -17,7 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/fights', fightsRouter)
 app.use('/pokemon', pokemonRouter);
+app.use('/', indexRouter);
 
 module.exports = app;
