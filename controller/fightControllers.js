@@ -3,7 +3,7 @@ const Fights = require('../model/fightModel')
 
 const getFighters = async (req, res) => {
 	try{
-		const get = await Fights.find({}).sort({date: 'asc'})
+		const get = await Fights.find({}).sort({date: 'desc'})
 		res.json(get)
 	} catch(err) {
 		res.status(404).send(err.message)
@@ -31,6 +31,17 @@ const createFighters = async (req, res) => {
 	}
 }
 
+// For testing purpose
+const deleteFighters = async (req, res) => {
+	const {id} = req.body
+	try{
+		const delete_fight = await Fights.findOneAndDelete({_id: id})
+		if(!delete_fight) return res.status(404).send('Fight not found')
+		res.json(delete_fight)
+	} catch (err){
+		res.status(500).send(err.message)
+	}
+}
 
 
-module.exports = {getFighters, createFighters}
+module.exports = {getFighters, createFighters, deleteFighters}
