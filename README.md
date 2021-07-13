@@ -13,19 +13,16 @@ To get the Node server running locally:
   
 <br/>  
 
-## Dependencies  
-- [expressjs](https://expressjs.com/) - The server for handling and routing HTTP requests   
-  
-<br/>  
-
 ## Application Structure  
 - ```app.js``` - The entry point to application. 
 - ```/routes``` - This folder contains the route definitions for API.
 - ```/api``` - This folder contains Pokemon's.  
+- ```/controller```- Separating the code to route requests
+- ```/model```- MongoDB model Schema for collecting Fights
   
 <br/>  
 
-## Live  
-- [Herkou](https://pokemon-express-api.herokuapp.com/) - Pokemon-API 
+## Deployment  
+- [Heroku.com](https://pokemon-express-api.herokuapp.com/) - Pokemon-API 
 
 <br />
