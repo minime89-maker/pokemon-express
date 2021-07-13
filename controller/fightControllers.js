@@ -24,6 +24,7 @@ const createFighters = async (req, res) => {
 				looser_name
 			}	 
 		})
+		console.log(create)
 		res.json(create)
 	} catch(err) {
 		res.status(500).send(err.message)
