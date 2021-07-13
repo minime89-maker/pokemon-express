@@ -22,10 +22,9 @@ const createFighters = async (req, res) => {
 			looser:{
 				looser_id,
 				looser_name
-			}
-			 
+			}	 
 		})
-		res.status(200).send(create)
+		res.json(create)
 	} catch(err) {
 		res.status(500).send(err.message)
 	}
